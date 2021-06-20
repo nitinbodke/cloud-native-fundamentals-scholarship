@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx-apline
+    tag: alpine
+  name: nginx-apline
+  namespace: demo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-apline
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: nginx-apline
+    spec:
+      containers:
+      - image: nginx:alpine
+        name: nginx
+        resources: {}
+status: {}
